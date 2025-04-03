@@ -2,9 +2,11 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Building2, Clock, BarChart3 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const caseStudies = [
   {
+    id: "financial-services",
     title: "Financial Services Workflow Transformation",
     industry: "Financial Services",
     timeReduction: "87%",
@@ -19,6 +21,7 @@ const caseStudies = [
     accentColor: "border-ai-blue"
   },
   {
+    id: "healthcare",
     title: "Healthcare Provider Document Management",
     industry: "Healthcare",
     timeReduction: "72%",
@@ -33,6 +36,7 @@ const caseStudies = [
     accentColor: "border-ai-purple"
   },
   {
+    id: "legal",
     title: "Legal Firm Contract Analysis Overhaul",
     industry: "Legal",
     timeReduction: "91%",
@@ -94,8 +98,10 @@ const CaseStudies = () => {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button variant="ghost" className="text-ai-blue hover:text-ai-purple hover:bg-ai-blue/5">
-                  Read Full Case Study <ArrowRight className="ml-2" size={16} />
+                <Button variant="ghost" className="text-ai-blue hover:text-ai-purple hover:bg-ai-blue/5" asChild>
+                  <Link to={`/case-study/${study.id}`}>
+                    Read Full Case Study <ArrowRight className="ml-2" size={16} />
+                  </Link>
                 </Button>
               </CardFooter>
             </Card>

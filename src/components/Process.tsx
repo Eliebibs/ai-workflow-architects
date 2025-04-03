@@ -58,24 +58,24 @@ const Process = () => {
         </div>
 
         <div className="relative">
-          {/* Connection line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-ai-blue/20 hidden md:block" style={{ transform: 'translateX(-50%)' }}></div>
+          {/* Connection line - more subtle now */}
+          <div className="absolute left-1/2 top-10 bottom-10 w-1 bg-gradient-to-b from-ai-blue/10 via-ai-blue/20 to-ai-blue/10 hidden md:block" style={{ transform: 'translateX(-50%)' }}></div>
           
-          <div className="space-y-12 relative">
+          <div className="space-y-16 md:space-y-10 relative">
             {steps.map((step, index) => (
-              <div key={index} className="md:grid md:grid-cols-2 gap-8 items-center">
+              <div key={index} className={`md:grid md:grid-cols-2 gap-6 items-center ${index % 2 === 1 ? "md:grid-flow-col-reverse" : ""}`}>
                 <div className={`mb-8 md:mb-0 ${index % 2 === 1 ? "md:order-2" : ""}`}>
                   <div className="relative">
-                    <div className="bg-white rounded-xl shadow-lg p-8 relative z-10 hover-card">
-                      <div className="mb-4">
-                        <span className="text-4xl font-bold text-gray-200">{step.number}</span>
-                        <h3 className="text-2xl font-bold mt-2">{step.title}</h3>
+                    <div className="bg-white rounded-xl shadow-md p-6 md:p-8 relative z-10 hover-card">
+                      <div className="flex items-center mb-4">
+                        <span className="text-3xl font-bold bg-gradient-to-r from-ai-blue to-ai-purple bg-clip-text text-transparent mr-3">{step.number}</span>
+                        <h3 className="text-2xl font-bold">{step.title}</h3>
                       </div>
                       <p className="text-gray-700 mb-6">{step.description}</p>
                       <ul className="space-y-3">
                         {step.benefits.map((benefit, idx) => (
                           <li key={idx} className="flex items-start">
-                            <span className="mr-2 rounded-full bg-green-50 p-1">
+                            <span className="mr-2 rounded-full bg-green-50 p-1 flex-shrink-0">
                               <Check className="h-4 w-4 text-green-600" />
                             </span>
                             <span className="text-gray-700">{benefit}</span>
@@ -83,15 +83,12 @@ const Process = () => {
                         ))}
                       </ul>
                     </div>
-                    
-                    {/* Decorative shape */}
-                    <div className="absolute top-4 left-4 w-full h-full bg-ai-blue/10 rounded-xl -z-10"></div>
                   </div>
                 </div>
                 
-                {/* Timeline node */}
+                {/* Timeline node - made more compact and attractive */}
                 <div className="hidden md:flex items-center justify-center relative">
-                  <div className="w-12 h-12 rounded-full bg-ai-blue text-white flex items-center justify-center font-bold z-10">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-ai-blue to-ai-purple text-white flex items-center justify-center font-bold z-10 shadow-lg">
                     {index + 1}
                   </div>
                 </div>
